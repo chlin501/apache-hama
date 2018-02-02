@@ -86,13 +86,6 @@ public class BSPMaster implements JobSubmissionProtocol, MasterProtocol,
   private HamaConfiguration conf;
   MasterSyncClient syncClient = null;
 
-  /**
-   * Constants for BSPMaster's status.
-   */
-  public static enum State {
-    INITIALIZING, RUNNING
-  }
-
   static long JOBINIT_SLEEP_INTERVAL = 2000;
 
   // States
@@ -940,7 +933,7 @@ public class BSPMaster implements JobSubmissionProtocol, MasterProtocol,
     this.masterServer.stop();
   }
 
-  public BSPMaster.State currentState() {
+  public State currentState() {
     return this.state.get();
   }
 

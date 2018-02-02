@@ -33,6 +33,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hama.bsp.BSPMaster;
 import org.apache.hama.bsp.GroomServer;
+import org.apache.hama.bsp.State;
 
 public class MiniBSPCluster {
 
@@ -91,7 +92,7 @@ public class MiniBSPCluster {
       if (null == this.bspm)
         return false;
 
-      if (this.bspm.currentState().equals(BSPMaster.State.RUNNING)) {
+      if (this.bspm.currentState().equals(State.RUNNING)) {
         return true;
       }
       return false;

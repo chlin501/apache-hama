@@ -60,7 +60,7 @@ public class ClusterStatus implements Writable {
   private Map<String, String> cachedActiveGroomNames = null;
   private int tasks;
   private int maxTasks;
-  private BSPMaster.State state;
+  private State state;
 
   /**
    * 
@@ -69,7 +69,7 @@ public class ClusterStatus implements Writable {
   }
 
   public ClusterStatus(int grooms, int tasks, int maxTasks,
-      BSPMaster.State state) {
+      State state) {
     this.numActiveGrooms = grooms;
     this.tasks = tasks;
     this.maxTasks = maxTasks;
@@ -77,7 +77,7 @@ public class ClusterStatus implements Writable {
   }
 
   public ClusterStatus(Map<String, GroomServerStatus> activeGrooms, int tasks,
-      int maxTasks, BSPMaster.State state) {
+      int maxTasks, State state) {
     this(activeGrooms.size(), tasks, maxTasks, state);
     this.activeGrooms = activeGrooms;
   }
@@ -142,12 +142,12 @@ public class ClusterStatus implements Writable {
    * 
    * @return the current state of the <code>BSPMaster</code>.
    */
-  public BSPMaster.State getBSPMasterState() {
+  public State getBSPMasterState() {
     return state;
   }
 
   // ////////////////////////////////////////////
-  // Writable
+  // Writabl
   // ////////////////////////////////////////////
   @Override
   public void write(DataOutput out) throws IOException {
@@ -187,6 +187,6 @@ public class ClusterStatus implements Writable {
 
     tasks = in.readInt();
     maxTasks = in.readInt();
-    state = WritableUtils.readEnum(in, BSPMaster.State.class);
+    state = WritableUtils.readEnum(in, State.class);
   }
 }
