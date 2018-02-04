@@ -90,7 +90,7 @@ public class BSPMaster implements JobSubmissionProtocol, MasterProtocol,
 
   // States
   final AtomicReference<State> state = new AtomicReference<State>(
-      State.INITIALIZING);
+      State.Initializing);
 
   // Attributes
   String masterIdentifier;
@@ -569,7 +569,7 @@ public class BSPMaster implements JobSubmissionProtocol, MasterProtocol,
 
     this.masterServer.start();
 
-    state.set(State.RUNNING);
+    state.set(State.Running);
 
     instructor = new Instructor();
     instructor.bind(ReportGroomStatusDirective.class,

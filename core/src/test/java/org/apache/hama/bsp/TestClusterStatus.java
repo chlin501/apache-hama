@@ -54,7 +54,7 @@ public class TestClusterStatus extends TestCase {
 
     int tasks = rnd.nextInt(100);
     int maxTasks = rnd.nextInt(100);
-    State state = State.RUNNING;
+    State state = State.Running;
 
     status1 = new ClusterStatus(grooms, tasks, maxTasks, state);
     status1.write(out);

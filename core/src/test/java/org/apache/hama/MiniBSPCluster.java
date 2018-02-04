@@ -92,7 +92,7 @@ public class MiniBSPCluster {
       if (null == this.bspm)
         return false;
 
-      if (this.bspm.currentState().equals(State.RUNNING)) {
+      if (this.bspm.currentState().equals(State.Running)) {
         return true;
       }
       return false;

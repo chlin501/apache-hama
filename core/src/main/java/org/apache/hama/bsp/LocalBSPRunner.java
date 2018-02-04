@@ -161,7 +161,7 @@ public class LocalBSPRunner implements JobSubmissionProtocol {
 
   @Override
   public ClusterStatus getClusterStatus(boolean detailed) throws IOException {
-    return new ClusterStatus(maxTasks, totalTasks, maxTasks, State.RUNNING);
+    return new ClusterStatus(maxTasks, totalTasks, maxTasks, State.Running);
   }
 
   @Override
